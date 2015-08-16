@@ -100,15 +100,17 @@ class MuseServer(ServerThread):
         win32api.SetCursorPos((self.x, self.y))
 
 
-try:
-    server = MuseServer()
-except ServerError as e:
-    print(str(e))
-    sys.exit()
+def main():
+    try:
+        server = MuseServer()
+    except ServerError as e:
+        print(str(e))
+        sys.exit()
 
-server.start()
+    server.start()
 
-
-if __name__ == "__main__":
     while True:
         time.sleep(1)
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource>
+        <file>Maze.png</file>
+        <file>Cursor.png</file>
+    </qresource>
+</RCC>
