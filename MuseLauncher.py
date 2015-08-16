@@ -16,9 +16,10 @@ class MuseLauncher(QDialog, MuseLauncher_ui.Ui_launcher_dialog):
 
     def launch_cursor(self):
         MuseCursor.main()
+        self.close()
 
     def launch_maze(self):
-        pass
+        self.close()
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
