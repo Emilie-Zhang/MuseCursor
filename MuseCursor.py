@@ -21,7 +21,7 @@ class MuseServer(ServerThread):
     def __init__(self):
         ServerThread.__init__(self, 5001)
         
-        self.x, self.y = 0, 0           # indicates position of mouse cursor, initialized at (0, 0)
+        self.x, self.y = 600, 450       # indicates position of mouse cursor, initialized at (0, 0)
         self.delay_counter = 0          # delay counter used to eliminate false positives/negatives
         self.state = 0                  # indicates current state
         
@@ -51,7 +51,7 @@ class MuseServer(ServerThread):
                     self.state = 1
                 
                 elif self.state == 1:
-                    self.state = 3
+                    self.state = 4
                 
                 elif self.state == 2:
                     self.state = 0
@@ -73,7 +73,7 @@ class MuseServer(ServerThread):
                     self.state = 0
                 
                 elif self.state == 2:
-                    self.state = 4
+                    self.state = 3
                 
                 elif self.state == 3:
                     self.state = 0
@@ -89,9 +89,9 @@ class MuseServer(ServerThread):
             elif self.state == 2:
                 self.x += MOUSE_MOVE_INCREMENT
             elif self.state == 3:
-                self.y += MOUSE_MOVE_INCREMENT
-            elif self.state == 4:
                 self.y -= MOUSE_MOVE_INCREMENT
+            elif self.state == 4:
+                self.y += MOUSE_MOVE_INCREMENT
 
             self.move_cursor()
                 
@@ -107,7 +107,9 @@ class MuseServer(ServerThread):
         win32api.SetCursorPos((self.x, self.y))
 
 
-def main():
+
+
+def main(): 
     try:
         server = MuseServer()
     except ServerError as e:
