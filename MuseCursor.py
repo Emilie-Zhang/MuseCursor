@@ -9,6 +9,11 @@ UPPER_ZERO_RANGE = 8
 LOWER_ZERO_RANGE = -8
 MAX_DELAY_COUNT = 50
 MOUSE_MOVE_INCREMENT = 3
+STATES = {0: "STATIONARY",
+          1: "LEFT",
+          2: "RIGHT",
+          3: "UP",
+          4: "DOWN"}
 
 class MuseServer(ServerThread):
     
@@ -35,6 +40,8 @@ class MuseServer(ServerThread):
             # STATE 2: Move cursor right
             # STATE 3: Move cursor up
             # STATE 4: Move cursor down
+
+            print(STATES[self.state])
 
             change_in_acceleration = args[0] - self.previous_acceleration 
 
