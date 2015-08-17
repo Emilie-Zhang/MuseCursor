@@ -21,7 +21,7 @@ class MuseServer(ServerThread):
     def __init__(self):
         ServerThread.__init__(self, 5001)
         
-        self.x, self.y = 600, 450       # indicates position of mouse cursor, initialized at (0, 0)
+        self.x, self.y = 650, 500       # indicates position of mouse cursor, initialized at (0, 0)
         self.delay_counter = 0          # delay counter used to eliminate false positives/negatives
         self.state = 0                  # indicates current state
         
